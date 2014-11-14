@@ -5,8 +5,10 @@ Created on Oct 22, 2014
 '''
 from pages.SFDriverScript import SFDriverScript
 from pages.SFLoginPage import SFLoginPage
+import pytest
 
 
+@pytest.mark.Test1
 class CheckTest1(SFDriverScript):
 
     def test_login_to_portal(self):

@@ -5,7 +5,6 @@ Created on Oct 22, 2014
 '''
 
 
-from modules.pages import SFData
 from modules.pages.SFBasePage import SFBasePage
 import time
 
@@ -19,10 +18,10 @@ locators = {"username": "//input[@id='username']",
 class SFLoginPage(SFBasePage):
 
     def do_login(self):
-        self.get_url(SFData.loginurl)
+        self.get_url(self.get_config('SF_login_url'))
         time.sleep(5)
-        self.type(locators["username"], SFData.credentials["username"])
-        self.type(locators["password"], SFData.credentials["password"])
+        self.type(locators["username"], self.get_config('SF_username', 'Credentials'))
+        self.type(locators["password"], self.get_config('SF_password', 'Credentials'))
         self.press(locators["login_button"])
 
     def is_logged_in(self):
