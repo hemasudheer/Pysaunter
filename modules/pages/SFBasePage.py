@@ -1,4 +1,5 @@
 from saunter.exceptions import ElementVisiblityTimeout
+from selenium.webdriver.common.action_chains import ActionChains
 from tailored.page import Page
 import time
 
@@ -102,4 +103,9 @@ class SFBasePage(Page):
                 return True
             else:
                 return False
+
+    def hover_search(self, webelement):
+        action_chains = ActionChains(self.driver)
+        action_chains.move_to_element(webelement).perform()
+
 
